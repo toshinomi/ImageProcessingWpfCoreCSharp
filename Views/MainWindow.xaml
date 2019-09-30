@@ -1,0 +1,79 @@
+﻿<Window x:Class="ImageProcessingWpfCoreCSharp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageProcessingWpfCoreCSharp"
+        mc:Ignorable="d"
+        Title="Image Processing" Height="626" Width="1360"
+        ResizeMode="NoResize"
+        Closing="OnClosingWindow" FontSize="15.75">
+    <Canvas Background="LightSteelBlue">
+        <GroupBox x:Name="groupBoxOperation" Header="Operation" Width="249" Height="408" Canvas.Left="10" Canvas.Top="32" FontSize="15.75">
+            <Canvas Height="387" VerticalAlignment="Top" Margin="0,0,-2,-1">
+                <Button x:Name="btnFileSelect" Content="File Select..." Canvas.Left="40" Canvas.Top="10" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnFileSelect" RenderTransformOrigin="0.481,0.16">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Please select a file to open.\nDisplay the image on the original image.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <Button x:Name="btnAllClear" Content="All Clear" Canvas.Left="40" Canvas.Top="70" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnAllClear" RenderTransformOrigin="0.481,0.1">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Clear the display.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <Button x:Name="btnStart" Content="Start" Canvas.Left="40" Canvas.Top="130" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnStart">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Perform unstable filter processing.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <Button x:Name="btnStop" Content="Stop" Canvas.Left="40" Canvas.Top="190" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnStop">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Processing stop.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <Button x:Name="btnSaveImage" Content="Save Image..." Canvas.Left="40" Canvas.Top="250" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnSaveImage">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Saving image.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <Button x:Name="btnShowHistgram" Content="Show Histgram..." Canvas.Left="40" Canvas.Top="310" Width="154" Height="50" FontSize="15.75" Background="White" Click="OnClickBtnShowHistgram">
+                    <ToolTipService.ToolTip>
+                        <TextBlock>Show Histgram.</TextBlock>
+                    </ToolTipService.ToolTip>
+                </Button>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="groupBoxProcessingInfo" Header="Processing Infomation" Width="249" Height="113" Canvas.Left="10" Canvas.Top="453" FontSize="15.75" >
+            <Canvas Canvas.Left="35" Canvas.Top="253" Margin="0,0,-2,3">
+                <Label Content="Time" Canvas.Left="40" Canvas.Top="10" RenderTransformOrigin="-0.113,-0.537"/>
+                <TextBox x:Name="textBoxTime" Height="28" Canvas.Left="40" TextWrapping="Wrap" Text="" Canvas.Top="41" Width="154" IsReadOnly="True" FontSize="15.75" TextAlignment="Right"/>
+                <Label Content="ms" Canvas.Left="194" Canvas.Top="41" RenderTransformOrigin="-0.113,-0.537"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="groupBoxImageOutput" Header="Image Output" Height="535" Canvas.Left="264" Canvas.Top="32" Width="1065" FontSize="15.75">
+            <Canvas Height="514" Margin="0,0,-2,-1" VerticalAlignment="Top">
+                <Border BorderBrush="White" BorderThickness="2" Height="456" Canvas.Left="20" Canvas.Top="39" Width="498" CornerRadius="10">
+                    <Image x:Name="pictureBoxOriginal"/>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="2" Height="456" Canvas.Left="535" Canvas.Top="39" Width="498" CornerRadius="10">
+                    <Image x:Name="pictureBoxAfter"/>
+                </Border>
+                <Label x:Name="labelOriginalImage" Content="Original Image" Canvas.Left="20" Canvas.Top="3"/>
+                <Label x:Name="labelAfterImage" Content="After Image" Canvas.Left="535" Canvas.Top="3"/>
+                <Canvas x:Name="canvasBinarization" Height="39" Canvas.Left="650" Width="383">
+                    <Slider x:Name="sliderThresh" Canvas.Left="151" Canvas.Top="10" Height="28" Width="160" Minimum="0" Maximum="255" IsSnapToTickEnabled="True" PreviewMouseUp="OnSliderPreviewMouseUp" PreviewKeyUp="OnSliderPreviewKeyUp"/>
+                    <Label x:Name="labelThresh" Content="Threshold( 0 - 255 )" Canvas.Top="3"/>
+                    <Label x:Name="labelValue" Content="{Binding Value, ElementName=sliderThresh}" Canvas.Top="5" Canvas.Left="316" Width="57"/>
+                </Canvas>
+            </Canvas>
+        </GroupBox>
+        <Menu x:Name="menuMain"  Background="White" FontSize="15.75">
+            <MenuItem Header="File(_F)">
+                <MenuItem Header="End(_X)" Click="OnClickMenu"/>
+            </MenuItem>
+            <MenuItem Header="Setting(_O)">
+                <MenuItem Header="Image Processing" Click="OnClickMenu"/>
+            </MenuItem>
+        </Menu>
+    </Canvas>
+</Window>
