@@ -38,6 +38,7 @@ namespace ImageProcessingWpfCoreCSharp
             items.Add(new ComImageProcessingType(Properties.Settings.Default.ImgTypeBinarizationId, Properties.Settings.Default.ImgTypeBinarizationName));
             items.Add(new ComImageProcessingType(Properties.Settings.Default.ImgTypeGrayScale2DiffId, Properties.Settings.Default.ImgTypeGrayScale2DiffName));
             items.Add(new ComImageProcessingType(Properties.Settings.Default.ImgTypeColorReversalId, Properties.Settings.Default.ImgTypeColorReversalName));
+            items.Add(new ComImageProcessingType(Properties.Settings.Default.ImgTypeGrayScaleDiffId, Properties.Settings.Default.ImgTypeGrayScaleDiffName));
 
             cmbBoxImageProcessingType.ItemsSource = items;
             cmbBoxImageProcessingType.SelectedIndex = (int)items.Find(x => x.Name == Properties.Settings.Default.ImgTypeSelectName)?.Id - 1;

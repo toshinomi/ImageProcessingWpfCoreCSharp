@@ -154,5 +154,29 @@ namespace ImageProcessingWpfCoreCSharp.Properties {
                 this["ImgTypeColorReversalName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int ImgTypeGrayScaleDiffId {
+            get {
+                return ((int)(this["ImgTypeGrayScaleDiffId"]));
+            }
+            set {
+                this["ImgTypeGrayScaleDiffId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GrayScale Diff")]
+        public string ImgTypeGrayScaleDiffName {
+            get {
+                return ((string)(this["ImgTypeGrayScaleDiffName"]));
+            }
+            set {
+                this["ImgTypeGrayScaleDiffName"] = value;
+            }
+        }
     }
 }

@@ -93,6 +93,9 @@ namespace ImageProcessingWpfCoreCSharp
                 case ComInfo.IMG_NAME_COLOR_REVERSAL:
                     m_imgProc = new ColorReversal(m_bitmap);
                     break;
+                case ComInfo.IMG_NAME_GRAY_SCALE_DIFF:
+                    m_imgProc = new GrayScaleDiff(m_bitmap);
+                    break;
                 default:
                     break;
             }
@@ -125,6 +128,10 @@ namespace ImageProcessingWpfCoreCSharp
                 case ComInfo.IMG_NAME_COLOR_REVERSAL:
                     ColorReversal colorReversal = (ColorReversal)m_imgProc;
                     wBitmap = colorReversal.WriteableBitmap;
+                    break;
+                case ComInfo.IMG_NAME_GRAY_SCALE_DIFF:
+                    GrayScaleDiff grayDiff = (GrayScaleDiff)m_imgProc;
+                    wBitmap = grayDiff.WriteableBitmap;
                     break;
                 default:
                     break;
@@ -159,6 +166,10 @@ namespace ImageProcessingWpfCoreCSharp
                 case ComInfo.IMG_NAME_COLOR_REVERSAL:
                     ColorReversal colorReversal = (ColorReversal)m_imgProc;
                     bRst = colorReversal.GoImgProc(_token);
+                    break;
+                case ComInfo.IMG_NAME_GRAY_SCALE_DIFF:
+                    GrayScaleDiff grayDiff = (GrayScaleDiff)m_imgProc;
+                    bRst = grayDiff.GoImgProc(_token);
                     break;
                 default:
                     break;
@@ -435,6 +446,13 @@ namespace ImageProcessingWpfCoreCSharp
                     if (colorReversal != null)
                     {
                         bitmap = colorReversal.WriteableBitmap;
+                    }
+                    break;
+                case ComInfo.IMG_NAME_GRAY_SCALE_DIFF:
+                    GrayScaleDiff grayDiff = (GrayScaleDiff)m_imgProc;
+                    if (grayDiff != null)
+                    {
+                        bitmap = grayDiff.WriteableBitmap;
                     }
                     break;
                 default:

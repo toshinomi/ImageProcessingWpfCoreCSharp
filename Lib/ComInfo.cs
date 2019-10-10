@@ -23,6 +23,7 @@ public class ComInfo
         Binarization,
         GrayScale2Diff,
         ColorReversal,
+        GrayScaleDiff,
         MAX,
     }
 
@@ -52,6 +53,7 @@ public class ComInfo
     public const string IMG_NAME_BINARIZATION = "Binarization";
     public const string IMG_NAME_GRAY_SCALE_2DIFF = "GrayScale 2Diff";
     public const string IMG_NAME_COLOR_REVERSAL = "ColorReversal";
+    public const string IMG_NAME_GRAY_SCALE_DIFF = "GrayScale Diff";
 }
 
 public class GraphData
